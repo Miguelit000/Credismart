@@ -34,3 +34,18 @@ Como este es un proyecto web estático (solo frontend), no requiere un servidor.
 2.  Navega a la carpeta del proyecto.
 3.  **Abre el archivo `index.html` en tu navegador web preferido** (Google Chrome, Firefox, etc.).
 4.  La navegación entre las páginas está enlazada desde el menú superior.
+
+---
+
+## 📸 Capturas de Pantalla
+
+A continuación se muestran las vistas principales de la aplicación.
+
+### 1. Página Principal (Catálogo)
+![Captura de la página principal o catálogo](./screenshots/image.png)
+
+### 2. Página Simulador
+![Captura de la página del simulador](./screenshots/simulador.png)
+
+### 3. Página Solicitar Crédito
+![Captura del formulario de solicitud](./screenshots/solicitarcredito.png)
