@@ -12,10 +12,10 @@ Este proyecto es la **Actividad 2** del curso de Ingeniería Web I. Es una evolu
 
 Esta versión incluye lógica de programación avanzada y gestión de estado:
 
-* [cite_start]**Arquitectura basada en Componentes:** Uso de componentes reutilizables como `CreditCard` y `Navbar`[cite: 58].
-* [cite_start]**Catálogo Dinámico:** Renderizado de productos desde un archivo de datos (`creditsData.js`) usando `.map()` [cite: 60-62].
-* [cite_start]**Simulador Interactivo:** Búsqueda en tiempo real y filtrado de créditos por rangos de monto [cite: 63-65].
-* [cite_start]**Solicitud Inteligente:** Formulario controlado que calcula automáticamente la **cuota mensual estimada** basándose en la tasa de interés del producto seleccionado[cite: 71].
+* **Arquitectura basada en Componentes:** Uso de componentes reutilizables como `CreditCard` y `Navbar`.
+* **Catálogo Dinámico:** Renderizado de productos desde un archivo de datos (`creditsData.js`) usando `.map()`.
+* **Simulador Interactivo:** Búsqueda en tiempo real y filtrado de créditos por rangos de monto.
+* **Solicitud Inteligente:** Formulario controlado que calcula automáticamente la **cuota mensual estimada** basándose en la tasa de interés del producto seleccionado.
 
 ---
 
@@ -25,8 +25,7 @@ Esta versión incluye lógica de programación avanzada y gestión de estado:
 * **Vite:** Herramienta de construcción (Build tool) rápida y moderna.
 * **React Router Dom:** Para la navegación sin recargar la página.
 * **Bootstrap 5:** Para los estilos y el diseño responsive.
-* [cite_start]**React Hooks:** Uso intensivo de `useState` (manejo de datos) y `useEffect` (cálculos automáticos)[cite: 69, 71].
-
+* **React Hooks:** Uso intensivo de `useState` (manejo de datos) y `useEffect` (cálculos automáticos).
 ---
 
 ## ⚙️ Instrucciones de Instalación
