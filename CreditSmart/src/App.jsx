@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home'; 
+import Simulador from './pages/Simulador';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} /> 
           
-          <Route path="/simulador" element={<h1>Aquí irá el Simulador</h1>} />
+          <Route path="/simulador" element={<Simulador />} />
           <Route path="/solicitar" element={<h1>Aquí irá el Formulario</h1>} />
         </Routes>
       </main>

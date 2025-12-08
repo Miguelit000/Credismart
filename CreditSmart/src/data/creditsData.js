@@ -1,13 +1,13 @@
-// src/data/creditsData.js
+
 
 export const credits = [
     {
         id: 1,
         nombre: "Crédito Libre Inversión",
-        tasa: 18.5, // % Anual
+        tasa: 18.5, 
         montoMin: 1000000,
         montoMax: 50000000,
-        plazoMax: 60, // Meses
+        plazoMax: 60, 
         imagen: "https://via.placeholder.com/300x150?text=Libre+Inversion"
     },
     {

@@ -4,7 +4,6 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
       <div className="container-fluid">
-        {/* Cambiamos href por 'to' y <a> por <NavLink> */}
         <NavLink className="navbar-brand" to="/">CreditSmart</NavLink>
         
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +13,6 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              {/* NavLink agrega automáticamente la clase 'active' cuando coincide la ruta */}
               <NavLink className="nav-link" to="/">Catálogo</NavLink>
             </li>
             <li className="nav-item">
