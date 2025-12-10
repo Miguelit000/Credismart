@@ -1,7 +1,30 @@
 import { useState, useEffect } from 'react';
-import { credits } from '../data/creditsData';
+import { db } from "../firebase/firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 
 function Solicitar() {
+  const [creditos, setCreditos] = useState([]);
+
+  useEffect(() => {
+    const obtenerCreditos = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "creditos"));
+        
+        const docs = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        
+        setCreditos(docs);
+        console.log("Datos descargados de Firebase:", docs);
+        
+      } catch (error) {
+        console.error("Error obteniendo créditos:", error);
+      }
+    };
+
+    obtenerCreditos();
+  }, []);
   const [formData, setFormData] = useState({
     nombre: '',
     cedula: '',
@@ -25,7 +48,7 @@ function Solicitar() {
 
   useEffect(() => {
     if (formData.monto && formData.tipoCredito) {
-      const creditoSeleccionado = credits.find(c => c.id === parseInt(formData.tipoCredito));
+      const creditoSeleccionado = creditos.find(c => c.id === parseInt(formData.tipoCredito));
       
       if (creditoSeleccionado) {
         const tasaMensual = (creditoSeleccionado.tasa / 100) / 12;
@@ -96,7 +119,7 @@ function Solicitar() {
               value={formData.tipoCredito} onChange={handleChange}
             >
               <option value="">Selecciona una opción...</option>
-              {credits.map(credit => (
+              {creditos.map(credit => (
                 <option key={credit.id} value={credit.id}>
                   {credit.nombre} (Tasa: {credit.tasa}%)
                 </option>

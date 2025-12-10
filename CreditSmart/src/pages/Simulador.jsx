@@ -1,12 +1,35 @@
-import { useState } from 'react'; 
-import { credits } from '../data/creditsData';
+import { useState, useEffect } from 'react';
+import { db } from "../firebase/firebaseConfig";
+import { collection, getDocs } from "firebase/firestore";
 import CreditCard from '../components/CreditCard';
 
 function Simulador() {
+  const [creditos, setCreditos] = useState([]);
   const [busqueda, setBusqueda] = useState("");
   const [montoFiltro, setMontoFiltro] = useState("todos");
 
-  const creditosFiltrados = credits.filter((credit) => {
+  useEffect(() => {
+    const obtenerCreditos = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "creditos"));
+        
+        const docs = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        
+        setCreditos(docs);
+        console.log("Datos del simulador descargados:", docs);
+        
+      } catch (error) {
+        console.error("Error obteniendo créditos en simulador:", error);
+      }
+    };
+
+    obtenerCreditos();
+  }, []);
+
+  const creditosFiltrados = creditos.filter((credit) => {
     
     const coincideNombre = credit.nombre.toLowerCase().includes(busqueda.toLowerCase());
 
@@ -65,7 +88,7 @@ function Simulador() {
         ) : (
           <div className="col-12 text-center mt-5">
             <div className="alert alert-warning">
-              No se encontraron créditos con esos criterios.
+              {creditos.length === 0 ? "Cargando créditos..." : "No se encontraron créditos con esos criterios."}
             </div>
           </div>
         )}
