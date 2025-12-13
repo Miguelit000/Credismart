@@ -1,69 +1,72 @@
-# ⚛️ CreditSmart - Aplicación Web con React
+# 🏦 CreditSmart - Plataforma de Gestión de Créditos
 
-Este proyecto es la **Actividad 2** del curso de Ingeniería Web I. Es una evolución del sitio estático anterior, transformado ahora en una **Single Page Application (SPA)** dinámica utilizando **React** y **Vite**.
+**CreditSmart** es una aplicación web moderna tipo Fintech desarrollada como una *Single Page Application* (SPA) con **React**.
 
-## 👤 Autor
+Esta versión (Actividad 3) integra persistencia de datos en la nube utilizando **Google Firebase (Firestore)**, permitiendo que el catálogo de créditos, el simulador y las solicitudes de usuarios funcionen en tiempo real y guarden información de manera permanente.
 
-* **Nombre:** Miguel Angel Gomez Velez
+## 🚀 Características Principales
 
----
-
-## 🚀 Características Nuevas
-
-Esta versión incluye lógica de programación avanzada y gestión de estado:
-
-* **Arquitectura basada en Componentes:** Uso de componentes reutilizables como `CreditCard` y `Navbar`.
-* **Catálogo Dinámico:** Renderizado de productos desde un archivo de datos (`creditsData.js`) usando `.map()`.
-* **Simulador Interactivo:** Búsqueda en tiempo real y filtrado de créditos por rangos de monto.
-* **Solicitud Inteligente:** Formulario controlado que calcula automáticamente la **cuota mensual estimada** basándose en la tasa de interés del producto seleccionado.
-
----
+* **Catálogo Dinámico:** Los productos de crédito se cargan directamente desde una base de datos NoSQL (Firestore), incluyendo imágenes y tasas actualizadas.
+* **Simulador de Crédito:** Herramienta de filtrado y búsqueda que consulta la base de datos en tiempo real.
+* **Solicitud en Línea (CRUD):** Formulario inteligente que calcula cuotas mensuales y **guarda** las solicitudes en la nube (Firestore).
+* **Manejo de Errores y Validaciones:**
+    * Detección automática de desconexión a internet (Modo Offline).
+    * Cálculos financieros automáticos en tiempo real.
+    * Alertas de estado visuales (Carga, Éxito, Error).
+* **Interfaz Profesional:** Diseño responsivo con Bootstrap 5, banners visuales y tarjetas de producto atractivas.
 
 ## 🛠️ Tecnologías Utilizadas
 
-* **React JS (v18):** Librería principal para la interfaz de usuario.
-* **Vite:** Herramienta de construcción (Build tool) rápida y moderna.
-* **React Router Dom:** Para la navegación sin recargar la página.
-* **Bootstrap 5:** Para los estilos y el diseño responsive.
-* **React Hooks:** Uso intensivo de `useState` (manejo de datos) y `useEffect` (cálculos automáticos).
----
-
-## ⚙️ Instrucciones de Instalación
-
-Para ejecutar este proyecto en tu máquina local, necesitas tener **Node.js** instalado.
-
-1.  **Clonar el repositorio:**
-    ```bash
-    git clone https://github.com/Miguelit000/Credismart.git
-    cd CreditSmart
-    ```
-
-2.  **Instalar dependencias:**
-    ```bash
-    npm install
-    ```
-
-3.  **Ejecutar el servidor de desarrollo:**
-    ```bash
-    npm run dev
-    ```
-
-4.  **Abrir en el navegador:**
-    Generalmente en: `http://localhost:5173/`
+* **Frontend:** React JS + Vite
+* **Lenguaje:** JavaScript (ES6+)
+* **Estilos:** Bootstrap 5 + CSS personalizado
+* **Backend / Base de Datos:** Firebase Firestore (NoSQL)
+* **Enrutamiento:** React Router Dom
+* **Control de Versiones:** Git & GitHub
 
 ---
+
+## ⚙️ Instrucciones de Instalación y Configuración
+
+Sigue estos pasos para ejecutar el proyecto en tu entorno local:
+
+### 1. Clonar el repositorio
+```bash
+git clone [URL_DE_TU_REPOSITORIO]
+cd CreditSmart
+```
+
+### 2. Instalar dependencias
+
+Necesitas tener Node.js instalado.
+```bash
+npm install
+```
+
+### 3. Configurar Variables de Entorno (¡IMPORTANTE!) 🔐
+Este proyecto utiliza Firebase, por lo que necesita credenciales de acceso privadas.
+Busca el archivo .env.example en la raíz del proyecto.
+Crea una copia de ese archivo y renómbralo a .env.
+Ingresa tus propias credenciales de Firebase en el archivo .env (sin comillas):
+
+### 4. Ejecutar el servidor de desarrollo
+```bash
+npm run dev
+```
+
+Abre tu navegador en: http://localhost:5173/
 
 ## 📂 Estructura del Proyecto
+/src
+|-- /assets          # Recursos estáticos
+|-- /components      # Componentes reutilizables (Navbar, CreditCard)
+|-- /firebase        # Configuración de conexión a la BD (firebaseConfig.js)
+|-- /pages           # Vistas principales:
+|   |-- Home.jsx     # Catálogo (Lee de colección 'creditos')
+|   |-- Simulador.jsx# Filtros (Lee de colección 'creditos')
+|   |-- Solicitar.jsx# Formulario (Escribe en colección 'solicitudes')
+|-- App.jsx          # Enrutamiento principal
+|-- main.jsx         # Punto de entrada
 
-/src |-- /components # Componentes reutilizables (Navbar, CreditCard) |-- /data # Fuente de datos simulada (creditsData.js) |-- /pages # Vistas principales (Home, Simulador, Solicitar) |-- App.jsx # Configuración de Rutas principal |-- main.jsx # Punto de entrada y estilos globales
-
-## 📸 Capturas de Pantalla
-
-### 1. Catálogo Dinámico
-![Catálogo](./screenshots/catalogo.png)
-
-### 2. Simulador con Filtros
-![Simulador](./screenshots/simulador.png)
-
-### 3. Cálculo de Cuota Automático
-![Formulario](./screenshots/formulario.png)
+## 👤 Autor
+Miguel Angel Gomez Ingeniería Web I - Actividad 3
