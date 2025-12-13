@@ -62,9 +62,15 @@ function Solicitar() {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); 
+   if (!navigator.onLine) {
+       setMensaje("¡Error de conexión! Verifica tu internet e intenta de nuevo.");
+       setEsError(true);
+       setTimeout(() => setMensaje(""), 5000);
+       return; 
+    }
+
     setMensaje("Enviando solicitud...");
     setEsError(false);
-    
     try {
       const solicitudAGuardar = {
         ...formData,
